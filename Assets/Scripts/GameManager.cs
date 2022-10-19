@@ -64,22 +64,33 @@ public class GameManager : MonoBehaviour {
         if (Random.Range(0f, 1f) < .5) {
             hunger -= 1;
             hungerCounter.text = hunger.ToString();
+            ColorText(hungerCounter, hunger);
         }
         
         if (Random.Range(0f, 1f) < .1) {
             energy -= 1;
             energyCounter.text = energy.ToString();
+            ColorText(energyCounter, energy);
         }
         
         if (Random.Range(0f, 1f) < .1) {
             hygiene -= 1;
             hygieneCounter.text = hygiene.ToString();
+            ColorText(hygieneCounter, hygiene);
         }
         
         if (Random.Range(0f, 1f) < .5) {
             entertainment -= 1;
             entertainmentCounter.text = entertainment.ToString();
+            ColorText(entertainmentCounter, entertainment);
         }
+    }
+
+    private void ColorText(TextMeshProUGUI text, int value) {
+        if (value > 3)
+            text.color = Color.green;
+        else
+            text.color = Color.red;
     }
 
     private void StartNewGame() {
