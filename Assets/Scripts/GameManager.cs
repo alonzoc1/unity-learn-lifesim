@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : MonoBehaviour {
     public GameObject dayCounterObj;
@@ -37,7 +40,10 @@ public class GameManager : MonoBehaviour {
         entertainmentCounter = entertainmentCounterObj.GetComponent<TextMeshProUGUI>();
         progressCounter = progressCounterObj.GetComponent<TextMeshProUGUI>();
 
-        StartNewGame();
+        if (SavePersist.instance.loadSave)
+            LoadGame();
+        else
+            StartNewGame();
     }
 
     private void Update() {
@@ -94,7 +100,38 @@ public class GameManager : MonoBehaviour {
     }
 
     private void SaveAndQuit() {
-        Debug.Log("Save and Quit");
+        SaveGame save = new SaveGame();
+        save.day = day;
+        save.progress = progress;
+        save.hunger = hunger;
+        save.hygiene = hygiene;
+        save.energy = energy;
+        save.entertainment = entertainment;
+        
+        System.IO.File.WriteAllText("./save.json", JsonUtility.ToJson(save));
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    private void LoadGame() {
+        SaveGame save = JsonUtility.FromJson<SaveGame>(System.IO.File.ReadAllText("./save.json"));
+        day = save.day;
+        dayCounter.text = "Day: " + day.ToString();
+        hunger = save.hunger;
+        hungerCounter.text = hunger.ToString();
+        energy = save.energy;
+        energyCounter.text = energy.ToString();
+        hygiene = save.hygiene;
+        hygieneCounter.text = hygiene.ToString();
+        entertainment = save.entertainment;
+        entertainmentCounter.text = entertainment.ToString();
+        progress = save.progress;
+        progressCounter.text = "Progress: " + progress.ToString();
+        
+        InvokeRepeating("GameTick", 1f, 1f);
     }
 
     public void RestoreStat(string stat) {

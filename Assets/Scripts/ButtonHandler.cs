@@ -20,11 +20,12 @@ public class ButtonHandler : MonoBehaviour {
     }
 
     public void LoadGame() {
-        ;
+        SavePersist.instance.loadSave = true;
+        SceneManager.LoadScene(1);
     }
 
     private void DisableLoadGameIfNotExist() {
-        if (!System.IO.File.Exists("./savedGame.json"))
+        if (!System.IO.File.Exists("./save.json"))
             loadGameButton.interactable = false;
     }
 }
