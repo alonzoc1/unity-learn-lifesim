@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour {
     public GameObject dayCounterObj;
@@ -52,19 +54,39 @@ public class GameManager : MonoBehaviour {
 
         progressCounter.text = "Progress: " + progress.ToString();
         dayCounter.text = "Day: " + day.ToString();
+
+        if (Random.Range(0f, 1f) < .5) {
+            hunger -= 1;
+            hungerCounter.text = hunger.ToString();
+        }
+        
+        if (Random.Range(0f, 1f) < .1) {
+            energy -= 1;
+            energyCounter.text = energy.ToString();
+        }
+        
+        if (Random.Range(0f, 1f) < .1) {
+            hygiene -= 1;
+            hygieneCounter.text = hygiene.ToString();
+        }
+        
+        if (Random.Range(0f, 1f) < .5) {
+            entertainment -= 1;
+            entertainmentCounter.text = entertainment.ToString();
+        }
     }
 
     private void StartNewGame() {
         dayCounter.text = "Day: 1";
         day = 1;
-        hungerCounter.text = "100";
-        hunger = 100;
-        energyCounter.text = "100";
-        energy = 100;
-        hygieneCounter.text = "100";
-        hygiene = 100;
-        entertainmentCounter.text = "100";
-        entertainment = 100;
+        hungerCounter.text = "10";
+        hunger = 10;
+        energyCounter.text = "10";
+        energy = 10;
+        hygieneCounter.text = "10";
+        hygiene = 10;
+        entertainmentCounter.text = "10";
+        entertainment = 10;
         progressCounter.text = "Progress: 0";
         progress = 0;
         
@@ -73,5 +95,26 @@ public class GameManager : MonoBehaviour {
 
     private void SaveAndQuit() {
         Debug.Log("Save and Quit");
+    }
+
+    public void RestoreStat(string stat) {
+        switch (stat) {
+            case "hunger":
+                hunger = 10;
+                hungerCounter.text = hunger.ToString();
+                break;
+            case "energy":
+                energy = 10;
+                energyCounter.text = energy.ToString();
+                break;
+            case "hygiene":
+                hygiene = 10;
+                hygieneCounter.text = hygiene.ToString();
+                break;
+            case "entertainment":
+                entertainment = 10;
+                entertainmentCounter.text = entertainment.ToString();
+                break;
+        }
     }
 }

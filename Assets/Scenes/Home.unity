@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 145488230}
   - component: {fileID: 145488229}
   - component: {fileID: 145488228}
+  - component: {fileID: 145488231}
   m_Layer: 0
   m_Name: bed
   m_TagString: Untagged
@@ -433,6 +434,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &145488231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145488227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f675ee074287aef4b84abeb8d3496b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: energy
 --- !u!1 &191862650
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +696,7 @@ GameObject:
   - component: {fileID: 429100457}
   - component: {fileID: 429100456}
   - component: {fileID: 429100455}
+  - component: {fileID: 429100458}
   m_Layer: 0
   m_Name: tv
   m_TagString: Untagged
@@ -807,6 +822,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429100458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429100454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f675ee074287aef4b84abeb8d3496b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: entertainment
 --- !u!1 &446643746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,6 +1924,7 @@ GameObject:
   - component: {fileID: 1473405807}
   - component: {fileID: 1473405806}
   - component: {fileID: 1473405805}
+  - component: {fileID: 1473405808}
   m_Layer: 0
   m_Name: food
   m_TagString: Untagged
@@ -1986,6 +2015,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1473405808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473405804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f675ee074287aef4b84abeb8d3496b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: hunger
 --- !u!1 &1518741937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2309,7 @@ GameObject:
   - component: {fileID: 1760511776}
   - component: {fileID: 1760511775}
   - component: {fileID: 1760511774}
+  - component: {fileID: 1760511777}
   m_Layer: 7
   m_Name: bathroom_door
   m_TagString: Untagged
@@ -2367,6 +2410,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760511777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760511773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f675ee074287aef4b84abeb8d3496b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: hygiene
 --- !u!1 &1806343594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,7 +2435,7 @@ GameObject:
   - component: {fileID: 1806343596}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
